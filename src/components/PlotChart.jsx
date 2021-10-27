@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import Switch from "react-switch";
-import data from "../data/germany2020stringency.json";
+import data from "../data/stringency2020.json";
 import {
   ResponsiveContainer,
   LineChart,
@@ -59,17 +59,55 @@ export default function PlotChart() {
           <LineChart data={data}>
             <Legend verticalAlign="top" align="right" />
             <XAxis dataKey="date" angle={-90} textAnchor="end" height={200} />
-            <YAxis dataKey="stringencyindex" />
+            <YAxis dataKey="stringencyGermany" />
             <CartesianGrid stroke="#f5f5f5" />
-            {showStringency && (
+         
+                
               <Line
                 type="natural"
                 dot={false}
-                dataKey="stringencyindex"
+                dataKey="stringencyGermany"
                 stroke="#ff7300"
                 yAxisId={0}
               />
-            )}
+              <Line
+                type="natural"
+                dot={false}
+                dataKey="stringencyFrance"
+                stroke="red"
+                yAxisId={0}
+              />
+              
+              <Line
+                type="natural"
+                dot={false}
+                dataKey="stringencyNetherlands"
+                stroke="#green"
+                yAxisId={0}
+              />
+              <Line
+                type="natural"
+                dot={false}
+                dataKey="stringencyItaly"
+                stroke="blue"
+                yAxisId={0}
+              />
+              <Line
+                type="natural"
+                dot={false}
+                dataKey="stringencySpain"
+                stroke="black"
+                yAxisId={0}
+              />
+              <Line
+                type="natural"
+                dot={false}
+                dataKey="stringencySweden"
+                stroke="purple"
+                yAxisId={0}
+              />
+              
+            
             {/* {showVac && (
               <Line type="monotone" dataKey="pv" stroke="#387908" yAxisId={1} />
             )}
@@ -77,7 +115,7 @@ export default function PlotChart() {
             {/* reference dots should be mapped to Attention curve since that one is always shown */}
             {/* Page Will Crash now if you remove the only curve there is  (stringency) */}
 
-            {eventDict.map((key) => (
+             {eventDict.map((key) => (
               <ReferenceDot
                 style={dotStyle}
                 onMouseOver={toggleHover}
@@ -90,7 +128,7 @@ export default function PlotChart() {
                 stroke={"blue"}
                 label={key.name}
               />
-            ))}
+            ))} 
           </LineChart>
         </ResponsiveContainer>
 
