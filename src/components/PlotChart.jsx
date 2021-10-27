@@ -43,6 +43,7 @@ export default function PlotChart() {
   }
 
   function handleClick(e) {
+    console.log("e", e)
     setEvent(e);
     setEventDate(e.x);
     setEventName(eventDict.find((o) => o.date === e.x).name);
@@ -52,6 +53,7 @@ export default function PlotChart() {
     setHover(!hover);
   }
 
+ 
   return (
     <div class="p-3  md:w-auto ... text-center text-3xl py-5">
       <div class="bg-white md:w-auto ... text-center h-auto ...">
@@ -123,10 +125,11 @@ export default function PlotChart() {
                 onClick={handleClick}
                 className="clickable"
                 x={key.date}
-                y={30}
-                r={40}
+                y={5}
+                r={20}
                 stroke={"blue"}
-                label={key.name}
+               
+                // label={key.name}
               />
             ))} 
           </LineChart>
